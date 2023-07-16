@@ -15,25 +15,24 @@ function TimeTable() {
     <div>
 
 {
-  timetables.map((timetable, index) => {
-    console.log(timetable);
+  timetables.map((timetable) => {
     return (
-      <>
-        <p key={index}>Year: {timetable.year} Section: {timetable.section}</p>
+      <div key={timetable.year +timetable.section }>
+        <p>Year: {timetable.year} Section: {timetable.section}</p>
         {
-          timetable.data.map((days, index) => {
+          timetable.data.map((days,index) => {
             return (
-              <div key={index}>
+              <div key={timetable.year +timetable.section+index}>
                 {
-                  days.map((day) => {
-                    return <span style={{margin:"20px"}}>{day}</span>;
+                  days.map((day,index) => {
+                    return <span key ={index} style={{margin:"20px"}}>{day}</span>;
                   })
                 }
               </div>
             );
           })
         }
-      </>
+      </div>
     );
   })
 }

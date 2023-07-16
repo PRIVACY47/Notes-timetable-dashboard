@@ -1,11 +1,17 @@
 import React from 'react'
 import {Link } from 'react-router-dom';
-function NavigationBar() {
+import { useContext } from 'react';
+import {MyContext} from '../App'
+ function NavigationBar() {
+  const token = useContext(MyContext)
   return (
     <>
-    <Link to="home">home</Link>
+    <div>
+    <Link to="/">home</Link>
     <Link to="timetable">timetable</Link>
     <Link to="notes">notes</Link>
+    {token ?<Link to="/dashboard"> dashboard </Link>:<Link to="login">login</Link>}
+    </div>
     </>
   )
 }

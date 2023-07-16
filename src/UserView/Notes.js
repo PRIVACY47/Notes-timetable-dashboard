@@ -1,5 +1,5 @@
 import React,{useEffect, useReducer} from 'react'
-import axios from 'axios';
+import AxiosInstance from '../Helpers/AxiosInstance'
 function Notes() {
   const [state,Dispatch] = useReducer(
     
@@ -21,9 +21,8 @@ function Notes() {
     )
 
     useEffect(()=>{
-      axios.get("http://13.233.126.93:8000/notes")
+      AxiosInstance.get("/notes")
         .then((response) => {
-          console.log(response.data.notes)
           Dispatch({type:'notes',notes:response.data.notes})
         })
         .catch((error) => {
