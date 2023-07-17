@@ -9,6 +9,8 @@ function AddSubject(props) {
         units: [{ unitName: "", unitNo: "", Link: ""}] }}
   
     onSubmit={async(values) => {
+
+      console.log(values)
       const convertedValues = {
         ...values,
         semister: parseInt(values.semister) ,
@@ -19,7 +21,8 @@ function AddSubject(props) {
       };
         await AxiosInstance.post("notes",convertedValues    
         ).then((response)=>{alert(response.data.message); if(response.data.data) props.setData(response.data.data)}).catch((error)=>{console.log(error)})
-      }}
+       
+    }}
     >
       {({ values }) => (
         <Form>

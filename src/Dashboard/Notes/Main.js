@@ -38,7 +38,6 @@ function NotesHome() {
         }}
         onSubmit={(values) => {
           
-            console.log(values.checked)
             AxiosInstance.delete('/notes',{data:values.checked}).then((response) => {
               // Handle the success of all delete requests if needed
               console.log(response.data.notes)
